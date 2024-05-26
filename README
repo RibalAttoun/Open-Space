@@ -1,0 +1,91 @@
+Fraud Detection Case Study
+
+Overview
+This project aims to develop a predictive model to accurately identify fraudulent credit card transactions based on a provided dataset. The dataset contains various features associated with each transaction, and the goal is to classify transactions as either fraudulent or benign.
+
+Dataset
+The dataset consists of the following columns:
+step: Maps a unit of time in the real world. 1 step = 1 hour of time.
+customer: Unique customer ID associated with each transaction.
+zipcodeOri: The zip code of the transaction's origin/source.
+merchant: The unique ID of the merchant involved in the transaction.
+zipMerchant: The zip code of the merchant.
+
+age: Categorized age of the customer.
+0: <= 18
+1: 19-25
+2: 26-35
+3: 36-45
+4: 46-55
+5: 56-65
+6: > 65
+U: Unknown
+
+gender: Gender of the customer.
+E: Enterprise
+F: Female
+M: Male
+U: Unknown
+
+category: Category of the purchase.
+amount: The amount of the purchase.
+fraud: Target variable; 1 if the transaction is fraudulent, 0 if benign.
+
+Key Steps
+
+Data Preprocessing
+Handled missing values using forward fill.
+Created a new feature 'hour_of_day' from 'step'.
+Frequency encoding for 'zipcodeOri' and 'zipMerchant'.
+Dropped high cardinality features 'customer' and 'merchant' from the model.
+
+Exploratory Data Analysis (EDA)
+Explored the distribution of the target variable (fraud).
+Analyzed the distribution of features and their relationships with the target variable.
+Visualized trends, patterns, and potential outliers in the data.
+Feature Engineering
+Created new features such as 'hour_of_day'.
+Scaled numerical features.
+
+Model Selection and Training
+Models used: Logistic Regression, Random Forest, Gradient Boosting, XGBoost, Decision Tree, Neural Network.
+Addressed class imbalance using SMOTE (Synthetic Minority Over-sampling Technique).
+Split data into training, validation, and testing sets.
+
+Model Evaluation
+Evaluated models using Precision, Recall, F1-score, and AUC (Area Under the ROC Curve).
+Selected the best performing model based on F1-score and AUC.
+
+Hyperparameter Optimization
+Performed Bayesian Optimization for hyperparameter tuning of the best performing model (XGBoost).
+
+Results and Key Insights
+High precision and recall for detecting fraudulent transactions.
+Significant reduction in false positives and false negatives.
+High overall accuracy and AUC, indicating strong predictive power.
+
+Visualization
+Plotted ROC and Precision-Recall curves for the best model.
+Visualized the distribution of various features and their impact on fraud detection.
+
+Recommendations
+Integration with Existing Systems: Seamlessly integrate the fraud detection model with existing transaction processing systems.
+Customer Communication and Education: Educate customers on recognizing and preventing fraud.
+Continuous Monitoring and Updating: Establish a robust process for continuous monitoring and periodic updating of the model.
+Stakeholder Training: Train relevant stakeholders on interpreting and acting on the model's predictions.
+Operational Efficiency: Leverage the model to reduce manual fraud investigations and associated costs.
+
+Usage
+Data Preprocessing: Run the script data_preprocessing.py to handle missing values and create new features.
+Model Training: Use the script train_model.py to train and evaluate different models.
+Hyperparameter Optimization: Execute optimize_hyperparameters.py for Bayesian Optimization of the best model.
+Visualization: Generate visualizations using visualize_data.py to understand the data and model performance.
+Results: Use evaluate_model.py to compile results and generate a summary report.
+
+Conclusion
+The developed fraud detection model shows high accuracy and strong predictive power, significantly enhancing the ability to identify and prevent fraudulent transactions. By implementing the recommendations, the business can achieve substantial financial savings and improved operational efficiency.
+
+Contact
+For any questions or further information, please contact:
+Ribal Attoun
+Email: [RibaAttoun@gmail.com]
